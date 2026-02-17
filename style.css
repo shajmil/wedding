@@ -312,12 +312,23 @@ h6 {
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: var(--white);
+  clip-path: inset(0);  /* iOS parallax fix */
+  -webkit-clip-path: inset(0);
+}
+
+.hero::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('./background.jpeg');
-  background-attachment: fixed;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  color: var(--white);
+  z-index: -1;
 }
 
 .hero-overlay {
@@ -541,15 +552,26 @@ h6 {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: url('https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1600&h=600&fit=crop');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   color: var(--white);
+  clip-path: inset(0);  /* iOS parallax fix */
+  -webkit-clip-path: inset(0);
 }
 
-.location-banner-2 {
+.location-banner::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1600&h=600&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.location-banner-2::before {
   background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&h=600&fit=crop');
 }
 
@@ -859,13 +881,24 @@ h6 {
 .after-party {
   position: relative;
   padding: 120px 30px;
-  background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&h=800&fit=crop');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   color: var(--white);
   text-align: center;
+  clip-path: inset(0);  /* iOS parallax fix */
+  -webkit-clip-path: inset(0);
+}
+
+.after-party::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&h=800&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
 }
 
 .after-overlay {
@@ -1231,6 +1264,10 @@ h6 {
   opacity: 0;
   pointer-events: none;
   will-change: transform, opacity;
+  font-family: 'Arial', 'Helvetica Neue', sans-serif;
+  font-variant-emoji: text;
+  -webkit-text-stroke: 0;
+  text-rendering: geometricPrecision;
 }
 
 /* ============================================
@@ -1400,12 +1437,6 @@ h6 {
   .hero-title {
     font-size: 3rem;
   }
-  
-  /* .hero,
-  .location-banner,
-  .after-party {
-    background-attachment: scroll; /* fix parallax jank on mobile */
-  } */
 
   .form-row {
     flex-direction: column;

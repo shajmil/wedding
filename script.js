@@ -170,7 +170,7 @@ navLinks.addEventListener('touchend', (e) => {
   container.setAttribute('aria-hidden', 'true');
   document.body.appendChild(container);
 
-  const heartChars = ['\u2764', '\u2665', '\u2763', '\u2661'];
+  const heartChars = ['\u2661', '\u2661', '\u2665\uFE0E', '\u2661'];
   const animations = ['globalHeartRise', 'globalHeartDrift'];
 
   function spawnHeart() {
