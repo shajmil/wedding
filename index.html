@@ -132,7 +132,7 @@
   </section>
 
   <!-- ===================== EVENT LOCATION 1 ===================== -->
-  <section class="location-banner" id="events">
+  <section class="location-banner location-banner-1" id="events">
     <div class="loc-overlay"></div>
     <div class="loc-content reveal-up">
       <h3>Infant Jesus Church</h3>
@@ -150,9 +150,10 @@
       <div class="event-text reveal-right">
         <h1>Church Ceremony</h1>
         <h6>3:00 PM &mdash; Infant Jesus Church</h6>
-        <p>We invite you to witness and bless our union at the sacred Infant Jesus Church. Join us as we exchange our
-          vows and begin our journey together as husband and wife, surrounded by the love and blessings of our family
-          and friends.</p>
+        <p>We warmly invite you to witness and bless our betrothal ceremony at the sacred Infant Jesus Church. </p>
+        <p>Join us as we take this beautiful step towards a lifetime together, seeking the love, 
+          prayers and blessings of our dear family and friends as we begin our journey towards marriage.
+          </p>
       </div>
     </div>
   </section>
@@ -163,13 +164,14 @@
       <div class="event-text reveal-left">
         <h1>Betrothal Reception</h1>
         <h6>6:00 PM &ndash; 8:30 PM &mdash; Vaz Arena</h6>
-        <p>After the church ceremony, we warmly invite you to celebrate with us at Vaz Arena for an evening filled with
-          joy, laughter, and delicious food. Come share in the happiness as we begin this beautiful new chapter of our
-          lives together.</p>
+        <p>After the church ceremony, we cordially invite you to join us at Vaz Arena for a delightful evening of joy, laughter and delightful dining.
+          </p><p>
+          Come celebrate with us and share in our happiness as we begin this beautiful new chapter in our lives together.
+          </p>
       </div>
       <div class="event-img reveal-right">
-        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=700&h=500&fit=crop"
-          alt="Villa Lunch" />
+        <img src="./couple_pic2.jpeg" alt="Betrothal Reception" />
+
       </div>
     </div>
   </section>
@@ -190,31 +192,24 @@
       <h1>Organization</h1>
       <h6>Betrothal</h6>
     </div>
-    <div class="gallery-grid">
-      <div class="gallery-item reveal-up" style="animation-delay: .1s">
-        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=400&fit=crop" alt="Gallery 1" />
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+    <div class="gallery-carousel reveal-up" id="galleryCarousel" tabindex="0">
+      <button type="button" class="carousel-btn carousel-prev" aria-label="Previous photo">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="./pic1.jpeg" alt="Betrothal photo 1" /></div>
+          <div class="carousel-slide"><img src="./pic2.jpeg" alt="Betrothal photo 2" /></div>
+          <div class="carousel-slide"><img src="./pic3.jpeg" alt="Betrothal photo 3" /></div>
+          <div class="carousel-slide"><img src="./pic4.jpeg" alt="Betrothal photo 4" /></div>
+          <div class="carousel-slide"><img src="./pic5.jpeg" alt="Betrothal photo 5" /></div>
+          <div class="carousel-slide"><img src="./pic6.jpeg" alt="Betrothal photo 6" /></div>
+        </div>
       </div>
-      <div class="gallery-item reveal-up" style="animation-delay: .2s">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=400&fit=crop" alt="Gallery 2" />
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal-up" style="animation-delay: .3s">
-        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&h=400&fit=crop" alt="Gallery 3" />
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal-up" style="animation-delay: .4s">
-        <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=400&h=400&fit=crop" alt="Gallery 4" />
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal-up" style="animation-delay: .5s">
-        <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=400&h=500&fit=crop" alt="Gallery 5" />
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
-      <div class="gallery-item reveal-up" style="animation-delay: .6s">
-        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=500&fit=crop" alt="Gallery 6" />
-        <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-      </div>
+      <button type="button" class="carousel-btn carousel-next" aria-label="Next photo">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="carousel-dots" role="tablist" aria-label="Gallery slides"></div>
     </div>
   </section>
 

@@ -168,6 +168,77 @@ window.addEventListener('orientationchange', onScroll);
 // Initial call
 onScroll();
 
+// ———— Gallery Carousel ————
+(function initGalleryCarousel() {
+  const AUTOPLAY_MS = 3000;
+  const carousel = document.getElementById('galleryCarousel');
+  if (!carousel) return;
+
+  const track = carousel.querySelector('.carousel-track');
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  const prevBtn = carousel.querySelector('.carousel-prev');
+  const nextBtn = carousel.querySelector('.carousel-next');
+  const dotsContainer = carousel.querySelector('.carousel-dots');
+  const viewport = carousel.querySelector('.carousel-viewport');
+  let current = 0;
+  let autoplayTimer = null;
+  let touchStartX = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+    resetAutoplay();
+  }
+
+  function next() {
+    goTo(current + 1);
+  }
+
+  function prev() {
+    goTo(current - 1);
+  }
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  viewport.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 50) diff > 0 ? prev() : next();
+  }, { passive: true });
+
+  carousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  function resetAutoplay() {
+    clearInterval(autoplayTimer);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    autoplayTimer = setInterval(next, AUTOPLAY_MS);
+  }
+
+  carousel.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+  carousel.addEventListener('mouseleave', resetAutoplay);
+
+  resetAutoplay();
+})();
+
 // ———— Global Floating Hearts ————
 (function globalHearts() {
   const container = document.createElement('div');
