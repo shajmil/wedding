@@ -239,6 +239,39 @@ onScroll();
   resetAutoplay();
 })();
 
+// ———— Developer Info Widget ————
+(function initDevWidget() {
+  const widget = document.getElementById('devWidget');
+  const toggle = document.getElementById('devWidgetToggle');
+  const panel = document.getElementById('devWidgetPanel');
+  const closeBtn = widget?.querySelector('.dev-widget-close');
+  if (!widget || !toggle || !panel) return;
+
+  function setOpen(open) {
+    widget.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close developer info' : 'Open developer info');
+    panel.setAttribute('aria-hidden', String(!open));
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!widget.classList.contains('open'));
+  });
+
+  closeBtn?.addEventListener('click', () => setOpen(false));
+
+  document.addEventListener('click', (e) => {
+    if (widget.classList.contains('open') && !widget.contains(e.target)) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && widget.classList.contains('open')) setOpen(false);
+  });
+})();
+
 // ———— Global Floating Hearts ————
 (function globalHearts() {
   const container = document.createElement('div');

@@ -1102,7 +1102,7 @@ h6 {
    ============================================ */
 .back-to-top {
   position: fixed;
-  bottom: 30px;
+  bottom: 100px;
   right: 30px;
   width: 45px;
   height: 45px;
@@ -1128,6 +1128,185 @@ h6 {
 .back-to-top:hover {
   background: var(--dark);
   transform: translateY(-4px);
+}
+
+/* ============================================
+   DEVELOPER INFO WIDGET
+   ============================================ */
+.dev-widget {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+}
+
+.dev-widget-panel {
+  position: absolute;
+  bottom: 62px;
+  right: 0;
+  width: min(320px, calc(100vw - 56px));
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .18);
+  border: 1px solid rgba(133, 95, 24, .15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(.96);
+  transform-origin: bottom right;
+  transition: opacity .35s ease, transform .35s ease, visibility .35s;
+  overflow: hidden;
+}
+
+.dev-widget.open .dev-widget-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.dev-widget-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
+  color: var(--white);
+}
+
+.dev-widget-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dev-widget-intro h4 {
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.dev-widget-intro p {
+  font-size: .7rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin: 0;
+}
+
+.dev-widget-close {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, .1);
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+
+.dev-widget-close:hover {
+  background: rgba(255, 255, 255, .2);
+}
+
+.dev-widget-body {
+  padding: 16px;
+}
+
+.dev-widget-msg {
+  font-size: .85rem;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: var(--bg-cream);
+  border-radius: 8px 8px 8px 2px;
+}
+
+.dev-widget-links {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+.dev-widget-links li + li {
+  margin-top: 8px;
+}
+
+.dev-widget-links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .8rem;
+  color: var(--dark);
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.dev-widget-links a i {
+  width: 18px;
+  color: var(--gold);
+  text-align: center;
+}
+
+.dev-widget-links a:hover {
+  background: var(--bg-light);
+  color: var(--gold);
+}
+
+.dev-widget-copy {
+  font-size: .68rem;
+  letter-spacing: .5px;
+  color: var(--text-light);
+  text-align: center;
+  margin: 0;
+}
+
+.dev-widget-toggle {
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(133, 95, 24, .45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.dev-widget-toggle:hover {
+  background: var(--dark);
+  transform: scale(1.05);
+}
+
+.dev-widget-icon-close {
+  display: none;
+}
+
+.dev-widget.open .dev-widget-icon-open {
+  display: none;
+}
+
+.dev-widget.open .dev-widget-icon-close {
+  display: block;
 }
 
 /* ============================================
@@ -1384,9 +1563,25 @@ h6 {
   }
 
   .back-to-top {
-    bottom: 20px;
+    bottom: 88px;
     right: 20px;
     width: 40px;
     height: 40px;
+  }
+
+  .dev-widget {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .dev-widget-toggle {
+    width: 48px;
+    height: 48px;
+    font-size: 1.15rem;
+  }
+
+  .dev-widget-panel {
+    bottom: 58px;
+    width: min(300px, calc(100vw - 40px));
   }
 }
