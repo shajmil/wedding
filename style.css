@@ -566,6 +566,7 @@ h6 {
 }
 .location-banner-1 {
   background-image: url('./church.jpeg');
+  background-position: center top;
 }
 
 .loc-overlay {

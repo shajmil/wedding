@@ -142,6 +142,8 @@ function onScroll() {
 
   // Parallax background shift
   parallaxSections.forEach(section => {
+    if (section.classList.contains('location-banner-1')) return;
+
     const rect = section.getBoundingClientRect();
     const sectionH = section.offsetHeight;
     if (rect.bottom < -100 || rect.top > winH + 100) return;
